@@ -1,0 +1,20 @@
+<h1 align='center'>Listing All Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+    <div class="row">
+        <div class="col-md-2">
+            <section class="center">
+                
+            </section>
+        </div>
+        <div class="col-md-8 card shadow-lg p-3 mb-5 bg-light rounded">
+            <h4><%= recipe.name.capitalize %></h4>
+            <p><%= truncate(recipe.description.capitalize, length: 200) %></p>
+            <p>
+                <span class='quiet'>
+                    <small>Created <%= time_ago_in_words(recipe.created_at) %> ago</small>
+                </span>
+            </p>
+        </div>
+    </div>
+<% end %>
