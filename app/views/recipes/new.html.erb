@@ -1,0 +1,58 @@
+<%= render 'shared/page_title', title: 'create a new recipe' %>
+
+<% if @recipe.errors.any? %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger">
+        <div class="card-heading">
+          <h2 class="card-title">
+            <%= pluralize(@recipe.errors.count, "error") %>
+            prohibited this <%= @recipe.class %> from being saved:
+          </h2>
+          <div class="card-body">
+            <ul>
+              <% @recipe.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="container-fluid h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-6">
+        <div class="card my-3 border border-success">
+          <div class="card-body">
+              <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                <div class="form-group form-label-group">
+                  <div class="control-label col-2">
+                    <%= f.label :name %>
+                  </div>
+                  <div class="col-12">
+                    <%= f.text_field :name, class: "form-control", placeholder: "Name of recipe", autofocus: true %>
+                  </div>
+                </div>
+                <div class="form-group form-label-group">
+                  <div class="control-label col-2">
+                    <%= f.label :description %>
+                  </div>
+                  <div class="col-12">
+                    <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Enter steps to create recipe" %>
+                  </div>
+                </div>
+                <div class="form-group form-label-group">
+                  <div class="col-md-offset-2 col-md-10">
+                    <%= f.submit class: "btn btn-success btn-sm spcBtn2" %>
+                    <%= link_to "Return to Recipes", recipes_path, class: 'btn btn-outline-info btn-sm' %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
