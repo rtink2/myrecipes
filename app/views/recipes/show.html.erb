@@ -18,4 +18,11 @@
             <%= time_ago_in_words(@recipe.created_at) %> ago
         </div>
     </div>
+        <div class="recipe-actions">
+            <%= link_to 'Edit Recipe', edit_recipe_path(@recipe), class: 'badge badge-pill badge-info mb-3' %>
+            <%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete,
+                              data: { confirm: "Are you sure you want to delete the recipe" },
+                              class: 'badge badge-pill badge-danger mb-3' %>
+        </div>
+        
 </div>
