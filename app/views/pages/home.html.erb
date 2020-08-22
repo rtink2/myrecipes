@@ -1,11 +1,11 @@
 <div class="jumbotron center mt-5 shadow-lg rounded">
-  <p><%= link_to "Sign up or log in", "#", class: "btn btn-danger btn-lg spcBtn" %></p>
+  <p><%= link_to "Sign up or log in", signup_path, class: "btn btn-danger btn-lg spcBtn" %></p>
 </div>
 
 <div class="row">
   <div class="col-8">
     <h2>Explore!</h2>
     <p>Browse recipes, find other chefs, chat, comment. Most of all, have fun!</p>
-    <p><a class="btn btn-info btn-sm" href="#" role="button">View all recipes »</a></p>
+    <p><%= link_to 'View all recipes »', recipes_path, class: 'btn btn-info btn-sm spcBtn2' %></p>
   </div>
 </div>

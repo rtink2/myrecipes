@@ -23,6 +23,7 @@
             <%= link_to 'Delete Recipe', recipe_path(@recipe), method: :delete,
                               data: { confirm: "Are you sure you want to delete the recipe" },
                               class: 'badge badge-pill badge-danger mb-3' %>
+            <%= link_to 'Return to all recipes', recipes_path, class: 'badge badge-pill badge-secondary' %>
         </div>
         
 </div>

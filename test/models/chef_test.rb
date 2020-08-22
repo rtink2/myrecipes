@@ -3,7 +3,8 @@ require 'test_helper'
 class ChefTest < ActiveSupport::TestCase
     
     def setup
-       @chef = Chef.new(chefname: 'damon', email: 'damon@example.com') 
+       @chef = Chef.new(chefname: 'damon', email: 'damon@example.com',
+                password: 'test1234', password_confirmation: 'test1234') 
     end
     
     test 'should be valid' do
@@ -58,6 +59,16 @@ class ChefTest < ActiveSupport::TestCase
         @chef.email = mixed_email
         @chef.save
         assert_equal mixed_email.downcase, @chef.reload.email
+    end
+    
+    test 'password should be present' do
+        @chef.password = @chef.password_confirmation = " "
+        assert_not @chef.valid?
+    end
+    
+    test 'password should be at least 5 chars' do
+        @chef.password = @chef.password_confirmation = "x" * 4
+        assert_not @chef.valid?
     end
     
 end
